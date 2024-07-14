@@ -2,8 +2,8 @@ from flask import Flask, request, abort
 from dotenv import load_dotenv
 from linebot import LineBotApi,WebhookHandler
 from linebot.exceptions import InvalidSignatureError
+import google.generativeai as genai
 from linebot.models import *
-from google.generativeai as genai
 import os
 load_dotenv()
 
@@ -14,7 +14,7 @@ handler = WebhookHandler(os.environ['CHANNEL_SECRET'])
 
 @app.route("/")
 def index():
-    return "<h1>My first web site-modified version</h1>"
+    return "<h1>linebot的Webhook的程式</h1>"
 
 @app.route("/callback", methods=['POST'])
 def callback():
